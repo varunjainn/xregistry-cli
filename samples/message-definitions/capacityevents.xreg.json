@@ -1,0 +1,70 @@
+{
+    "messagegroups": {
+        "RealTimeHub": {
+            "envelope": "CloudEvents/1.0",
+            "description": "State change events for RealTimeHub capacity and workload",
+            "messages": {
+                "RealTimeHub.CapacityResourceAllocation": {
+                    "description": "Event for capacity resource allocation",
+                    "envelope": "CloudEvents/1.0",
+                    "envelopemetadata": {
+                        "id": { "required": true },
+                        "type": {
+                            "value": "RealTimeHub.CapacityResourceAllocation",
+                            "description": "Event raised for capacity resource allocation"
+                        },
+                        "source": {
+                            "type": "uritemplate",
+                            "description": "source of the event",
+                            "value": "{capacityId}/{capacityName}"
+                        },
+                        "time": { "required": true },
+                        "datacontenttype": { "value": "application/json" }
+                    },
+                    "dataschemaformat": "Avro/1.11.1",
+                    "dataschemauri": "#/schemagroups/RealTimeHub/schemas/RealTimeHub.CapacityResourceAllocationEventData"
+                },
+                "RealTimeHub.CapacityCPUPerWorkloadOperation": {
+                    "description": "Event for workload operation",
+                    "envelope": "CloudEvents/1.0",
+                    "envelopemetadata": {
+                        "id": { "required": true },
+                        "type": {
+                            "value": "RealTimeHub.CapacityCPUPerWorkloadOperation",
+                            "description": "Event raised for workload operation"
+                        },
+                        "source": {
+                            "type": "uritemplate",
+                            "description": "source of the event",
+                            "value": "{capacityId}/{workspaceId}/{operationId}"
+                        },
+                        "time": { "required": true },
+                        "datacontenttype": { "value": "application/json" }
+                    },
+                    "dataschemaformat": "Avro/1.11.1",
+                    "dataschemauri": "#/schemagroups/RealTimeHub/schemas/RealTimeHub.CapacityCPUPerWorkloadOperationEventData"
+                },
+                "RealTimeHub.CapacityCPUPerWorkloadSummary": {
+                    "description": "Event for workload summary",
+                    "envelope": "CloudEvents/1.0",
+                    "envelopemetadata": {
+                        "id": { "required": true },
+                        "type": {
+                            "value": "RealTimeHub.CapacityCPUPerWorkloadSummary",
+                            "description": "Event raised for workload summary"
+                        },
+                        "source": {
+                            "type": "uritemplate",
+                            "description": "source of the event",
+                            "value": "{capacityId}/{windowStartTime}/{windowEndTime}"
+                        },
+                        "time": { "required": true },
+                        "datacontenttype": { "value": "application/json" }
+                    },
+                    "dataschemaformat": "Avro/1.11.1",
+                    "dataschemauri": "#/schemagroups/RealTimeHub/schemas/RealTimeHub.CapacityCPUPerWorkloadSummaryEventData"
+                }
+            }
+        }
+    }
+}
